@@ -1,4 +1,5 @@
 const dataBase = require('../dataBase').getInstance();
+// Видаляємо Хот Дог
 module.exports = async (req, res) => {
     try {
         const hotDogModel = dataBase.getModel('hot_dog');

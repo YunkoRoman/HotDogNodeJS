@@ -1,13 +1,9 @@
 const dataBase = require('../dataBase').getInstance();
+// Дістаєм всі хот доги з бази
 module.exports = async (req, res) => {
     try {
         const hotDogModel = dataBase.getModel('hot_dog');
-        const PhotoModel = dataBase.getModel('photo');
-        const hotDogs = await PhotoModel.findAll({
-            include:[{
-                model:hotDogModel,
-                attributes:["id" ,"name", "description"]
-            }],
+        const hotDogs = await hotDogModel.findAll({
         });
 
 

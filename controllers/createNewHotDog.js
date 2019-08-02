@@ -1,16 +1,16 @@
 const dataBase = require('../dataBase').getInstance();
 const path = require('path');
+// Створення нового Хот Дога
 module.exports = async (req, res) => {
     try {
-        // const way = path.normalize(req.files.photo[0].path);
-        // const Way = way.slice(7);
+
         const hotDogModel = dataBase.getModel('hot_dog');
         const {name, description} = req.body;
-        console.log(name);
+        if (!name) throw new Error('No name');
+        if (!description) throw new Error('No description');
         const createHotDog = await hotDogModel.create({
             name,
             description,
-
         });
 
         res.json({

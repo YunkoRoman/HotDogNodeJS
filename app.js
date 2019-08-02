@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const dataBase = require('./dataBase').getInstance();
-const upload = require('./multer');
 
 const cors = require('cors');
 const app = express();
@@ -10,7 +9,7 @@ const CreateHotDog = require('./controllers/createNewHotDog');
 const UpdateHotDog = require('./controllers/uppdateHotDog');
 const DeleteHotDog = require('./controllers/deleteHotDog');
 const OneHotDog = require('./controllers/OneHotdOG');
-const AddPhoto = require('./controllers/AddPhoto');
+// const AddPhoto = require('./controllers/AddPhoto');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin","http://localhost:4200");
@@ -31,7 +30,7 @@ dataBase.setModels();
 
 
 app.get ('/HotDog', AllHotDog);
-app.post('/HotDog/photo/:id',upload.fields([{name: 'photo', maxCount: 1}])  ,AddPhoto);
+// app.post('/HotDog/photo/:id',upload.fields([{name: 'photo', maxCount: 1}])  ,AddPhoto);
 app.post('/HotDog' ,CreateHotDog);
 app.put('/HotDog/:id', UpdateHotDog);
 app.delete('/HotDog/:id', DeleteHotDog);

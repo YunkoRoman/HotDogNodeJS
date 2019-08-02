@@ -1,4 +1,5 @@
 const dataBase = require('../dataBase').getInstance();
+// Дістаємо дані хот дога по id, для того щоб віддати на фронт та відобразити в формі для редагування
 module.exports = async (req, res) => {
     try {
         const hotDogModel = dataBase.getModel('hot_dog');
